@@ -1,0 +1,26 @@
+namespace DataAccess.Data
+{
+    public class UserData : IUserData
+    {
+        private readonly ISqlDataAccess _db;
+
+        public UserData(ISqlDataAccess db)
+        {
+            _db = db;
+        }
+
+        public Task<IEnumerable<UserModel>> GetUsers() => _db.LoadData<UserModel, dynamic>("dbo.spUser_GetAll", new {});
+
+        public async Task<UserModel?> GetUser(int id)
+        {
+            var results = await _db.LoadData<UserModel, dynamic>("dbo.spUser_Get", new { Id = id});
+            return results.FirstOrDefault();
+        }
+
+        public Task InsertUser(UserModel user) => _db.SaveData("dbo.spUser_Insert", new { user.FirstName, user.LastName});
+
+        public Task UpdatetUser(UserModel user) => _db.SaveData("dbo.spUser_Update", new { user.Id, user.FirstName, user.LastName});
+
+        public Task DeleteUser(int id) => _db.SaveData("dbo.spUser_Delete", new { Id = id});
+    }
+}
