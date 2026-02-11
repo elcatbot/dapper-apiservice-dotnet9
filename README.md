@@ -10,10 +10,9 @@ A sample REST service built with **.NET 9 minimal API endpoints** to perform **R
 - Simple CRUD operations (Create, Read, Update, Delete)
 - Lightweight and easy to extend
 
----
-
 ## 📂 Project Structure
 
+```bash
 dapper-apiservice-dotnet9/
 │── DapperApiService.sln # Solution file
 │── README.md            # Project documentation
@@ -32,15 +31,13 @@ dapper-apiservice-dotnet9/
         │   └── Properties/
         │       └── launchSettings.json
         └── DapperApiService.csproj
-
----
+```
 
 ## ⚙️ Prerequisites
 - [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
 - SQL Server or any supported relational database
 - Basic knowledge of REST APIs and Dapper
 
----
 
 ## 🛠️ Installation & Setup
 1. **Clone the repository**
@@ -58,9 +55,7 @@ dapper-apiservice-dotnet9/
 
 3. **Update database connection string**
 
-```bash
     Modify appsettings.json (or equivalent configuration) with your database details.
-```
 
 4. **Run the application**
 
